@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-//    @IBOutlet weak var categoryOnCell: UILabel!
+    @IBOutlet weak var categoryOnCell: UILabel!
     
     let realm = try! Realm()
     
@@ -49,8 +49,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let dateString: String = formatter.string(from: task.date)
         cell.detailTextLabel?.text = dateString
         
-//        let categoryString: String = task.category
-//        categoryOnCell.text = categoryString
+        categoryOnCell.text = task.category
+    
         
         return cell
     }
