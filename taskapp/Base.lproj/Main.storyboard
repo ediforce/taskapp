@@ -48,13 +48,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBY-gH-deB">
-                                                    <rect key="frame" x="153" y="11" width="71" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -78,7 +71,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="categoryOnCell" destination="CBY-gH-deB" id="Z1S-uU-bxJ"/>
                         <outlet property="searchBar" destination="onh-1k-Dmb" id="4rx-gy-xKt"/>
                         <outlet property="tableView" destination="Dc2-pI-4j8" id="kfB-bm-ZAL"/>
                         <segue destination="7C3-nH-yL5" kind="show" identifier="cellSegue" id="aU7-iw-3l2"/>

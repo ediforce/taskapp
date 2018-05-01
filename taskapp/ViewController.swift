@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var categoryOnCell: UILabel!
+
     
     let realm = try! Realm()
     
@@ -26,8 +26,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        searchBar.placeholder = "カテゴリー名を入力"
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,9 +52,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let dateString: String = formatter.string(from: task.date)
         cell.detailTextLabel?.text = dateString
         
-        categoryOnCell.text = task.category
-    
         
+    
         return cell
     }
     

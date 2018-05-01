@@ -19,6 +19,10 @@ class InputViewController: UIViewController {
     
     var realm = try! Realm()
     var task: Task!
+//    class category: Object {
+//        @objc dynamic var name = ""
+//
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
