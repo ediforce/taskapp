@@ -93,13 +93,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
         
     }
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        searchBar.endEditing(true)
-//        
-//        if searchBar.text == "" {
-//            searchResult = dataList
-//        }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        
+        
     }
-
+  
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let predicate = NSPredicate(format: "category" , searchBar.text! )
+        
+        if searchBar.text == "" {
+            taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
+        } else { taskArray = realm.objects(Task.self).filter(predicate)
+        tableView.reloadData()
+    }
+    }
 }
 
