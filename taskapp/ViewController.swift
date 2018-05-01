@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+//    @IBOutlet weak var categoryOnCell: UILabel!
     
     let realm = try! Realm()
     
@@ -24,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.delegate = self
         tableView.dataSource = self
-        
+        searchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +48,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let dateString: String = formatter.string(from: task.date)
         cell.detailTextLabel?.text = dateString
+        
+//        let categoryString: String = task.category
+//        categoryOnCell.text = categoryString
         
         return cell
     }
@@ -100,7 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
   
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let predicate = NSPredicate(format: "category" , searchBar.text! )
+        let predicate = NSPredicate(format: "category = %@" , searchBar.text! )
         
         if searchBar.text == "" {
             taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
