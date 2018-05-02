@@ -6,31 +6,31 @@
 //  Copyright © 2018年 keiichi.funatsuki. All rights reserved.
 //
 
-import UIKit
-import RealmSwift
+//import UIKit
+//import RealmSwift
+//
+//class AddCategoryViewController: UIViewController {
+//    @IBOutlet weak var categoryTextField: UITextField!
+//
+//    let realm = try! Realm()
+//    var category = Category()
+//
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // Do any additional setup after loading the view.
+//    }
+//
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//
+//    override func viewWillDisappear(animated: Bool) {
+//        let
+//    }
 
-class AddCategoryViewController: UIViewController {
-    @IBOutlet weak var categoryTextField: UITextField!
-    
-    let realm = try! Realm()
-    var category = Category()
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        let 
-    }
-    
 
     /*
     // MARK: - Navigation
@@ -42,4 +42,4 @@ class AddCategoryViewController: UIViewController {
     }
     */
 
-}
+//}
