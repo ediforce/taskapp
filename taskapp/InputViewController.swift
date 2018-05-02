@@ -10,19 +10,29 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class InputViewController: UIViewController {
+class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var categoryPicker: UIPickerView!
+    
+//    @IBOutlet weak var categoryTextField: UITextField!
     
     var realm = try! Realm()
     var task: Task!
-//    class category: Object {
-//        @objc dynamic var name = ""
-//
-//    }
+    var category = Category()
+//    var category: Category!
+    var categoryArray = try! Realm().objects(Category.self).sorted(byKeyPath: "date",ascending: false)
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +45,7 @@ class InputViewController: UIViewController {
         titleTextField.text = task.title
         contentsTextView.text = task.contents
         datePicker.date = task.date
-        categoryTextField.text = task.category
+//        categoryTextField.text = task.category
         
     }
     
@@ -44,13 +54,14 @@ class InputViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         try! realm.write{
             self.task.title = self.titleTextField.text!
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date
-            self.task.category = self.categoryTextField.text!
+//            self.task.category = self.categoryTextField.text!
             self.realm.add(self.task, update: true)
         }
         
